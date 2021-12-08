@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="javascript, function, parameter">
+    <meta name="description" content="Javascript functions tutorials">
+    <meta name="author" content="Ashkan Zohrabi">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Functions</title>
+    <link rel="icon" type="image/x-icon" href="./images/icon.jpeg">
+</head>
+<body>
+    <h1 class="title" id="top">Javascript Functions</h1>
+    <hr>
+    <p>Quite often we need to perform a similar action in many places of the script.</p>
+    <p>For example, we need to show a nice-looking message when a visitor logs in, logs out and maybe somewhere else.</p>
+    <p>Functions are the main “building blocks” of the program. They allow the code to be called many times without repetition.</p>
+    <p>We’ve already seen examples of built-in functions, like <code>alert(message)</code>, <code>prompt(message, default)</code> and <code>confirm(question)</code>. But we can create functions of our own as well.</p>
+    <br>
+
+    <!-- Declaration section -->
+    <h2 class="title">Function Declaration</h2>
+    <hr>
+    <p>To create a function we can use a function declaration.</p>
+    <p>It looks like this:</p>
+    <code>
+        <pre>
+        function showMessage() {
+            alert( 'Hello everyone!' );
+        }            
+        </pre>
+    </code>
+    <p>The <code>function</code> keyword goes first, then goes the name of the function, then a list of parameters between the parentheses (comma-separated, empty in the example above, we’ll see examples later) and finally the code of the function, also named “the function body”, between curly braces.</p>
+    <code>
+        <pre>
+        function name(parameter1, parameter2, ... parameterN) {
+            ...body...
+        }
+        </pre>
+    </code>
+    <p>Our new function can be called by its name: <code>showMessage()</code>.</p>
+    <p>For instance:</p>
+    <code>
+        <pre>
+        function showMessage() {
+            alert( 'Hello everyone!' );
+        }
+        
+        <mark>showMessage();</mark>
+        </pre>
+    </code>
+    <p>The call showMessage() executes the code of the function. Here we will see the message two times.</p>
+    <p>This example clearly demonstrates one of the main purposes of functions: to avoid code duplication.</p>
+    <p>If we ever need to change the message or the way it is shown, it’s enough to modify the code in one place: the function which outputs it.</p>
+    <br>
+
+    <!-- Parameters section -->
+    <h2 class="title">Parameters</h2>
+    <hr>
+    <p>We can pass arbitrary data to functions using parameters.</p>
+    <p>In the example below, the function has two parameters: <var>from</var> and <var>text</var>.</p>
+    <code>
+        <pre>
+        function showMessage(<mark>from, text</mark>) { // parameters: from, text
+            alert(from + ': ' + text);
+        }
+        
+        showMessage('Ann', 'Hello!'); // (*)
+        showMessage('Ann', "What's up?"); // (**)
+        </pre>
+    </code>
+    <p>The output is:</p>
+    <pre>
+        <samp id="firstResult">Ann: Hello!</samp>
+        <samp id="secondResult">Ann: What's up?</samp>
+    </pre>
+    <p>When the function is called in lines <b>(*)</b> and <b>(**)</b>, the given values are copied to local variables <var>from</var> and <var>text</var>. Then the function uses them.</p>
+    <p>Here’s one more example: we have a variable <var>from</var> and pass it to the function. Please note: the function changes <var>from</var>, but the change is not seen outside, because a function always gets a copy of the value:</p>
+    <code>
+        <pre>
+        function showMessage(from, text) {
+
+            <mark>from = '*' + from + '*'; // make "from" look nicer</mark>
+            
+            alert( from + ': ' + text );
+        }
+        
+        let from = "Ann";
+        
+        showMessage(from, "Hello"); // *Ann*: Hello
+        
+        // the value of "from" is the same, the function modified a local copy
+        alert( from ); // Ann
+        </pre>
+    </code>
+    <p>When a value is passed as a function parameter, it’s also called an argument.</p>
+    <p>In other words, to put these terms straight:</p>
+    <ul>
+        <li>A parameter is the variable listed inside the parentheses in the function declaration (it’s a declaration time term)</li>
+        <li>An argument is the value that is passed to the function when it is called (it’s a call time term).</li>
+    </ul>
+    <p>We declare functions listing their parameters, then call them passing arguments.</p>
+    <p>In the example above, one might say: "the function <code>showMessage</code> is declared with two parameters, then called with two arguments: <var>from</var> and <var>"Hello"</var>".</p>
+
+    <!-- Save section -->
+    <h2 class="title">Save</h2>
+    <hr>
+    <p>You can save your files by pressing <kbd>Ctr</kbd> + <kbd>S</kbd>.</p>
+    <br>
+
+    <!-- link to the top of the page -->
+    <a href="#top">TOP &#8593;</a>
+</body>
+</html>
